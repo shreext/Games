@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classic Games Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+
+        @font-face {
+            font-family: 'chleri';
+            src: url(/font/2.TTF);
+        }
+
+        body {
+            background: #040404;
+            min-height: 100vh;
+            padding: 20px;
+            color: #dca06d;
+        }
+
+        h1 {
+            color: #dca06d;
+            font-size: 3.5rem;
+            font-family: 'chleri';
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .games-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #dca06d;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-preview {
+            width: 100%;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .game-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .game-info-card {
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .info-title {
+            font-size: 1.2rem;
+            color: #dca06d;
+            margin-bottom: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+            text-align: left;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+            color: #dca06d;
+            font-size: 0.9rem;
+        }
+
+        .game-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #dca06d;
+        }
+
+        .play-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #a55b4b;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .play-button:hover {
+            background: #dca06d;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .coming-soon {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #dca06d;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: #dca06d;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #a55b4b;
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .game-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        /* Add these new styles */
+        .profile-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .profile-card {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            /* margin-bottom: 40px; */
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            flex-shrink: 0;
+            /* background: rgba(0, 0, 0, 0.2); */
+            overflow: hidden;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            margin: 20px;
+        }
+
+        .profile-content {
+            padding: 25px;
+            flex-grow: 1;
+        }
+
+        .profile-title {
+            font-size: 1.8rem;
+            color: #dca06d;
+            margin-bottom: 15px;
+            font-family: 'chleri';
+        }
+
+        .profile-description {
+            color: #dca06d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: rgba(165, 91, 75, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #dca06d;
+        }
+
+        @media screen and (max-width: 768px) {
+            .profile-card {
+                flex-direction: column;
+                padding-right: 20px;
+            }
+
+            .profile-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Classic Games Collection</h1>
+    
+    <div class="profile-container">
+        <div class="profile-card">
+            <div class="profile-image">
+                <img src="/img/profile.jpg" alt="Developer Profile">
+            </div>
+            <div class="profile-content">
+                <h2 class="profile-title">About the Developer</h2>
+                <p class="profile-description">
+                    Hi, I am Anant Shree a tech enthusiast passionate about programming, web development, and problem-solving. 
+                    Currently sharpening my skills in Java, Python, and web technologies while exploring 
+                    real-world applications. Always eager to learn, build, and collaborate on innovative projects.
+                </p>
+                <div class="tech-tags">
+                    <span class="tech-tag">Java</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Web Development</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="games-container">
+        <div class="game-card">
+            <h2 class="game-title">Tic Tac Toe</h2>
+            <div class="game-preview">
+                <img src="/img/tic.PNG" alt="Tic Tac Toe Preview">
+            </div>
+            <div class="game-info-card">
+                <h3 class="info-title">Game Details</h3>
+                <ul class="info-list">
+                    <li>🎮 Players: 2 players</li>
+                    <li>⏱️ Duration: 2-5 minutes</li>
+                    <li>🎯 Objective: Create a line of three symbols</li>
+                    <li>💡 Difficulty: Easy to learn</li>
+                </ul>
+            </div>
+            <p class="game-description">
+                The classic game of X's and O's! Challenge your friends in this timeless strategy game. 
+                Place your marks strategically to create a line of three and claim victory.
+            </p>
+            <a href="/html/ticIndex.html" class="play-button">Play Now</a>
+        </div>
+
+        <div class="game-card">
+            <h2 class="game-title">Dot and Box</h2>
+            <div class="game-preview">
+                <img src="/img/dot.PNG" alt="Dot and Box Preview">
+            </div>
+            <div class="game-info-card">
+                <h3 class="info-title">Game Details</h3>
+                <ul class="info-list">
+                    <li>🎮 Players: 2 players</li>
+                    <li>⏱️ Duration: 5-10 minutes</li>
+                    <li>🎯 Objective: Complete more boxes than your opponent</li>
+                    <li>💡 Difficulty: Medium</li>
+                </ul>
+            </div>
+            <p class="game-description">
+                Connect the dots to create boxes and claim territory! A strategic game where players 
+                take turns drawing lines between dots, trying to complete boxes and score points.
+            </p>
+            <a href="/html/dotIndex.html" class="play-button">Play Now</a>
+        </div>
+    </div>
+
+    <footer>
+        <h2 class="section-heading">Let's Connect</h2>
+        <div class="social-links">
+            <a href="https://x.com/shreext?t=o67aIYsbL5-wI6oFNzdW3Q&s=09" target="_blank">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://m.facebook.com/anant.shree.10/" target="_blank">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a href="https://www.linkedin.com/in/shreext" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://www.instagram.com/shreext?igsh=dTRmaXl1Y3ViZzlr" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://github.com/shreext" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+    </footer>
+</body>
+<!-- Add Font Awesome for social media icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</html>
+
+<!-- 
+#f1efec
+#d4c9be
+#123458
+#030303
+ -->

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dot And Box</title>
+    <link rel="stylesheet" href="/css/dotStyle.css">
+</head>
+
+<body>
+    <h1>Dot And Box</h1>
+    <div class="container">
+        <div class="game-info">
+            Current Player: <span id="current-player">Player 1 (Blue)</span> |
+            Score: <span id="score">Player 1: 0 - Player 2: 0</span>
+            <h3 id="winP"></h3>
+        </div>
+
+        <table id="board">
+            <!-- Row 1 -> Dot & Horizontal Lines -->
+            <tr>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="0" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="0" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="0" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="0" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="0" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+            </tr>
+
+            <!-- Row 2 -> Vertical Lines & Box -->
+
+            <tr>
+                <td>
+                    <div class="vertical-line" data-row="0" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="0" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="0" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="0" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="0" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="0" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="0" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="0" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="0" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="0" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="0" data-col="5"></div>
+                </td>
+            </tr>
+
+            <!-- Row 3 -> Dot & Horizontal Lines -->
+            <tr>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="1" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="1" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="1" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="1" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="1" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+            </tr>
+
+            <!-- Row 4 -> Vertical Lines & Box -->
+
+            <tr>
+                <td>
+                    <div class="vertical-line" data-row="1" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="1" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="1" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="1" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="1" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="1" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="1" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="1" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="1" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="1" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="1" data-col="5"></div>
+                </td>
+            </tr>
+
+            <!-- Row 5 -> Dot & Horizontal Lines -->
+            <tr>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="2" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="2" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="2" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="2" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="2" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+            </tr>
+
+            <!-- Row 6 -> Vertical Lines & Box -->
+
+            <tr>
+                <td>
+                    <div class="vertical-line" data-row="2" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="2" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="2" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="2" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="2" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="2" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="2" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="2" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="2" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="2" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="2" data-col="5"></div>
+                </td>
+            </tr>
+
+            <!-- Row 7 -> Dot & Horizontal Lines -->
+            <tr>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="3" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="3" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="3" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="3" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="3" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+            </tr>
+
+            <!-- Row 8 -> Vertical Lines & Box -->
+
+            <tr>
+                <td>
+                    <div class="vertical-line" data-row="3" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="3" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="3" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="3" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="3" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="3" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="3" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="3" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="3" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="3" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="3" data-col="5"></div>
+                </td>
+            </tr>
+
+            <!-- Row 9 -> Dot & Horizontal Lines -->
+            <tr>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="4" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="4" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="4" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="4" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="4" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+            </tr>
+
+            <!-- Row 10 -> Vertical Lines & Box -->
+
+            <tr>
+                <td>
+                    <div class="vertical-line" data-row="4" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="4" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="4" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="4" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="4" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="4" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="4" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="4" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="4" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="box" data-row="4" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="vertical-line" data-row="4" data-col="5"></div>
+                </td>
+            </tr>
+
+            <!-- Row 11 -> Dot & Horizontal Lines -->
+            <tr>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="5" data-col="0"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="5" data-col="1"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="5" data-col="2"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="5" data-col="3"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+                <td>
+                    <div class="horizontal-line" data-row="5" data-col="4"></div>
+                </td>
+                <td>
+                    <div class="dot"></div>
+                </td>
+            </tr>
+
+           
+
+        </table>
+
+        <button id="reset-btn">Reset Game</button>
+    </div>
+
+
+    <script src="/js/dotApp.js"></script>
+</body>
+
+</html>
